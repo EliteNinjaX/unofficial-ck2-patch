@@ -1,0 +1,563 @@
+decisions = {
+	soc_vassalize_ecumenical_patriarch = {
+		is_high_prio = yes
+		
+		potential = {
+			religion = orthodox
+			independent = yes
+			k_orthodox = {
+				holder_scope = {
+					independent = yes
+				}
+			}
+		}
+		
+		allow = {
+			primary_title = {
+				real_tier = EMPEROR
+			}
+			completely_controls = c_byzantion
+			piety = 1000
+		}
+		
+		effect = {
+			custom_tooltip = {
+				text = SOC_ECUMENICAL_PATRIARCH_RECEIVES_HAGIA_SOPHIA_AND_IS_VASSALIZED
+				k_orthodox = {
+					holder_scope = {
+						set_defacto_liege = ROOT
+						b_hagiasophia = {
+							gain_title = PREV
+						}
+					}
+				}
+			}
+			piety = -1000
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	soc_pass_agnatic_laws = {
+		is_high_prio = yes
+		
+		potential = {
+			religion = orthodox
+			NOT = {
+				has_global_flag = pass_agnatic_laws_flag
+			}
+			primary_title = {
+				real_tier = EMPEROR
+				has_law = vassal_wars_law_2
+			}
+		}
+		
+		allow = {
+			custom_tooltip = {
+				text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+			
+			primary_title = {
+				has_law = agnatic_succession
+				has_law = status_of_women_0
+			}
+			
+			piety = 1000
+		}
+		
+		effect = {
+			religion_scope = {
+				set_allows_matrilineal_marriage = no
+			}
+			custom_tooltip = {
+				text = SOC_ENFORCE_AGNATIC_SUCCESSION
+				set_global_flag = pass_agnatic_laws_flag
+			}
+			piety = -1000
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	soc_dismiss_pentarchy = {
+		is_high_prio = yes
+	
+		potential = {
+			religion = orthodox
+			NOT = {
+				has_global_flag = dismissed_pentarchy_flag
+			}
+			primary_title = {
+				real_tier = EMPEROR
+			}
+		}
+		
+		allow = {
+			custom_tooltip = {
+				text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+			
+			completely_controls = c_byzantion
+			OR = {
+				completely_controls = c_antiocheia
+				completely_controls = c_jerusalem
+				completely_controls = c_alexandria
+				completely_controls = c_roma
+			}
+			piety = 1000
+		}
+		
+		effect = {
+			set_global_flag = dismissed_pentarchy_flag
+			any_province = {
+				kingdom = {
+					set_pentarch_title = none
+				}
+			}
+			c_byzantion = {
+				kingdom = {
+					set_pentarch_title = b_hagiasophia
+					set_title_flag = ecumenical_patriarch_admininistration_flag
+				}
+			}
+			piety = -1000
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	soc_closely_control_patriarch = {
+		is_high_prio = yes
+		
+		potential = {
+			religion = orthodox
+			has_global_flag = pass_agnatic_laws_flag
+			has_global_flag = dismissed_pentarchy_flag
+			
+			NOT = {
+				has_global_flag = can_replace_ecumenical_patriarch_flag
+			}
+			primary_title = {
+				real_tier = EMPEROR
+			}
+		}
+		
+		allow = {
+			custom_tooltip = {
+				text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+			
+			primary_title = {
+				has_law = law_voting_power_0
+				has_law = vassal_wars_law_2
+				has_law = out_of_realm_inheritance_law_1
+				OR = {
+					has_law = revoke_title_law_1
+					has_law = revoke_title_law_2
+				}
+				has_law = ze_administration_laws_2
+				has_law = vice_royalty_2
+			}
+			
+			piety = 1000
+		}
+		
+		effect = {
+			religion_scope = {
+				set_can_grant_claim = yes
+			}
+			custom_tooltip = {
+				text = SOC_EMPEROR_CAN_REPLACE_ECUMENICAL_PATRIARCH
+				set_global_flag = can_replace_ecumenical_patriarch_flag
+			}
+			piety = -1000
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	soc_call_orthodox_crusades = {
+		is_high_prio = yes
+		
+		potential = {
+			religion = orthodox
+			has_global_flag = christian_crusades_unlocked
+			NOT = {
+				has_global_flag = call_orthodox_crusades_flag
+			}
+			primary_title = {
+				real_tier = EMPEROR
+			}
+		}
+		
+		allow = {
+			custom_tooltip = {
+			text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+			piety = 1000
+		}
+		
+		effect = {
+			religion_scope = {
+				set_can_call_crusade = yes
+			}
+			set_global_flag = call_orthodox_crusades_flag
+			piety = -1000
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	soc_pause_orthodox_crusades = {
+		potential = {
+			religion = orthodox
+			has_global_flag = call_orthodox_crusades_flag
+			NOT = {
+				has_global_flag = pause_orthodox_crusades
+			}
+			primary_title = {
+				real_tier = EMPEROR
+			}
+		}
+		
+		allow = {
+			custom_tooltip = {
+			text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+			piety = 100
+		}
+		
+		effect = {
+			religion_scope = {
+				set_can_call_crusade = no
+			}
+			set_global_flag = pause_orthodox_crusades
+			piety = -100
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	soc_unpause_orthodox_crusades = {
+		potential = {
+			religion = orthodox
+			has_global_flag = call_orthodox_crusades_flag
+			has_global_flag = pause_orthodox_crusades
+			primary_title = {
+				real_tier = EMPEROR
+			}
+		}
+		
+		allow = {
+			custom_tooltip = {
+			text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			religion_scope = {
+				set_can_call_crusade = yes
+			}
+			clr_global_flag = pause_orthodox_crusades
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	soc_pledge_support_crusade = {
+		is_high_prio = yes
+		
+		potential = {
+			ai = no
+			religion = orthodox
+			religion_scope = {
+				is_preparing_crusade = yes
+			}
+			has_pledged_crusade_participation = no
+		}
+		
+		allow = {
+			age = 16
+			is_incapable = no
+			custom_tooltip = {
+				text = SOC_HAS_NOT_UNPLEDGED_CRUSADE_PARTICIPATION
+				OR {
+					NOT = {
+						has_character_flag = unpledge_crusade_participation_flag
+					}
+					had_character_flag = {
+						flag = unpledge_crusade_participation_flag
+						days = 365
+					}
+				}
+			}
+			k_orthodox = {
+				holder_scope = {
+					NOT = {
+						war_with = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			pledge_crusade_participation = yes
+			piety = 100
+		}
+	}
+	
+	soc_declare_catholics_heretics = {
+		is_high_prio = yes
+		
+		potential = {
+			religion = orthodox
+			primary_title = {
+				real_tier = EMPEROR
+			}
+			completely_controls = c_roma
+			NOT = {
+				has_global_flag = catholics_declared_heretics_flag
+			}
+		}
+		
+		allow = {
+			custom_tooltip = {
+			text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+			piety = 1000
+		}
+		
+		effect = {
+			custom_tooltip = {
+				text = SOC_CAN_DECLARE_CATHOLICS_HERETICS
+				long_character_event = {
+					id = soc.1
+					days = 0
+				}
+			}
+		}
+	}
+	
+	soc_declare_miaphysites_heretics = {
+		is_high_prio = yes
+		
+		potential = {
+			religion = orthodox
+			primary_title = {
+				real_tier = EMPEROR
+			}
+			completely_controls = c_alexandria
+			NOT = {
+				has_global_flag = miaphysites_declared_heretics_flag
+			}
+		}
+		
+		allow = {
+			custom_tooltip = {
+			text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+			piety = 1000
+		}
+		
+		effect = {
+			custom_tooltip = {
+				text = SOC_CAN_DECLARE_MIAPHYSITES_HERETICS
+				character_event = {
+					id = soc.2
+					days = 0
+				}
+			}
+		}
+	}
+	
+	soc_declare_nestorians_heretics = {
+		is_high_prio = yes
+		
+		potential = {
+			religion = orthodox
+			primary_title = {
+				real_tier = EMPEROR
+			}
+			completely_controls = c_antiocheia
+			NOT = {
+				has_global_flag = nestorians_declared_heretics_flag
+			}
+		}
+		
+		allow = {
+			custom_tooltip = {
+			text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+			piety = 1000
+		}
+		
+		effect = {
+			custom_tooltip = {
+				text = SOC_CAN_DECLARE_NESTORIANS_HERETICS
+				character_event = {
+					id = soc.3
+					days = 0
+				}
+			}
+		}
+	}
+	
+	soc_saint_basil_community_set_up = {
+		is_high_prio = yes
+		potential = {
+			religion = orthodox
+			primary_title = {
+				real_tier = EMPEROR
+			}
+			
+			NOT = {
+				has_global_flag = saint_basil_community_grandmaster_reached
+			}
+			society_member_of = monastic_order_orthodox
+		}
+
+		allow = {
+			custom_tooltip = {
+			text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+			piety = 1000
+			
+			is_society_grandmaster = yes
+		}
+	
+		effect = {
+			piety = -1000
+			set_global_flag = saint_basil_community_grandmaster_reached
+		}
+	}
+	
+	soc_saint_basil_community_rank_up = {
+		is_high_prio = yes
+		potential = {
+			religion = orthodox
+			primary_title = {
+				real_tier = EMPEROR
+			}
+			
+			has_global_flag = saint_basil_community_grandmaster_reached
+			society_rank = {
+				society = monastic_order_orthodox
+				rank < 4
+			}
+		}
+
+		allow = {
+			custom_tooltip = {
+			text = SOC_IS_LIEGE_OF_THE_ECUMENICAL_PATRIARCH
+				is_title_active = k_orthodox
+				k_orthodox = {
+					holder_scope = {
+						ROOT = {
+							is_liege_of = PREV
+						}
+					}
+				}
+			}
+			wealth = 1000
+		}
+	
+		effect = {
+			wealth = -1000
+			society_rank_up = 3
+		}
+	}
+}

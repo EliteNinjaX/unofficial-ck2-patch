@@ -1,0 +1,5 @@
+on_unpledge_crusade_participation = {
+	events = {
+		soc.0
+	}
+}

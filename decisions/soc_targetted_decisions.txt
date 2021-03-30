@@ -1,0 +1,204 @@
+targetted_decisions = {
+	soc_replace_ecumenical_patriarch = {
+		filter = court
+		ai_target_filter = none
+		ai = no
+		
+		from_potential = {
+			religion = orthodox
+			has_global_flag = can_replace_ecumenical_patriarch_flag
+		}
+		
+		potential = {
+			religion = orthodox
+			is_title_active = k_orthodox
+			k_orthodox = {
+				holder_scope = {
+					FROM = {
+						is_liege_of = PREV
+					}
+				}
+			}
+		}
+		
+		allow = {
+			religion = orthodox
+			is_female = no
+			age = 16
+			is_incapable = no
+			NOT = {
+				trait = excommunicated
+			}
+			is_ruler = no
+			is_heir = no
+			FROM = {
+				piety = 1000
+			}
+		}
+		
+		effect = {
+			k_orthodox = {
+				show_scope_change = no
+				gain_title = ROOT
+			}
+			b_hagiasophia = {
+				show_scope_change = no
+				gain_title = ROOT
+			}
+			FROM = {
+				piety = -1000
+			}
+			if = {
+				limit = {
+					FROM = {
+						trait = excommunicated 
+					}
+				}
+				FROM = {
+					remove_trait = excommunicated
+				}
+			}
+		}
+	}
+	
+	soc_vassalize_holy_sepulchre = {
+		filter = independent_rulers
+		ai_target_filter = independent_rulers
+	
+		from_potential = {
+			religion = orthodox
+			primary_title = {
+				OR = {
+					real_tier = KING
+					real_tier = EMPEROR
+				}
+			}
+			independent = yes
+			
+			OR = {
+				has_global_flag = christian_crusades_unlocked
+				has_global_flag = pagan_ghws_unlocked 
+				has_global_flag = muslim_jihads_unlocked
+			}
+		}
+		
+		potential = {
+			primary_title = {
+				holy_order = yes
+			}
+			religion = orthodox
+			
+			NOT = {
+				has_opinion_modifier = {
+					who = FROM
+					modifier = opinion_unfit_ruler
+				}
+			}
+		}
+		
+		allow = {
+			FROM = {
+				war = no
+				piety = 1000
+				wealth = 1000
+				NOT = {
+					trait = excommunicated
+				}
+				
+				completely_controls = c_jerusalem
+				
+				custom_tooltip = {
+					text = only_one_vassalized_holy_order_TT
+
+					NOT = {
+						any_realm_lord = {
+							holy_order = yes
+						}
+					}
+				}
+			}
+			
+			ROOT = {
+				opinion = {
+					who = FROM
+					value = 100
+				}
+			}
+		}
+		
+		effect = {
+			FROM = {
+				wealth = -1000
+				piety = -1000
+			}
+			
+			ROOT = {
+				show_scope_change = no
+				set_defacto_liege = FROM
+			}
+		}
+	}
+	
+	soc_donate_holy_sepulchre = {
+		filter = independent_rulers
+		ai_target_filter = none
+		ai = no
+
+		from_potential = {
+			religion = orthodox
+		}
+		
+		potential = {
+			primary_title = {
+				holy_order = yes
+			}
+			religion = orthodox
+		}
+		
+		allow = {
+			FROM = {
+				wealth = 1000
+				custom_tooltip = {
+					text = holy_order_donate_cooldown_tt
+					NOT = { has_character_modifier = donate_to_holy_order_cooldown }
+				}
+			}
+		}
+		
+		effect = {
+			hidden_effect = {
+				FROM = {
+					add_character_modifier = {
+						modifier = donate_to_holy_order_cooldown
+						hidden = yes
+						years = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						NOT = { has_character_modifier = donated_to_holy_order }
+					}
+				}
+				FROM = {
+					add_character_modifier = {
+						name = donated_to_holy_order
+						duration = -1
+					}
+				}
+			}
+			
+			ROOT = {
+				character_event = {
+					id = SoA.1640
+				}
+			}
+			
+			FROM = {
+				wealth = -300
+				piety = 100
+			}
+		}
+	}
+}

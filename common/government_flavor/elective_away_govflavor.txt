@@ -1,0 +1,19 @@
+government_flavor = {
+	name = gov_roman_imperial_government
+	graphics = GFX_evt_victory_arch_byzantine
+	priority = 3
+	trigger = {
+		OR = {
+		has_law = succ_primogeniture
+		has_law = succ_seniority
+		has_law = succ_tanistry
+		has_law = succ_ultimogeniture
+		has_law = succ_byzantine_elective
+		}
+		is_landed = yes
+		OR = {
+			has_landed_title = e_roman_empire
+			has_landed_title = e_byzantium
+		}
+	}	
+}

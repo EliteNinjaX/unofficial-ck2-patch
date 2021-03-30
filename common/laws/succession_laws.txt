@@ -1553,6 +1553,11 @@ gender_laws = {
 	cognatic_succession = {
 		potential = {
 			holder_scope = {
+                NOT = {
+					AND = {
+						religion = orthodox
+						has_global_flag = pass_agnatic_laws_flag
+					}
 				NOT = { has_religion_feature = religion_matriarchal }
 				NOT = { has_religion_feature = religion_equal }
 				OR = {
@@ -1686,6 +1691,13 @@ gender_laws = {
 		male_dynasty_opinion = -5
 		
 		potential = { 
+            holder_scope = {
+				NOT = {
+					AND = {
+						religion = orthodox
+						has_global_flag = pass_agnatic_laws_flag
+					}
+				}
 			holder_scope = { NOT = { has_religion_feature = religion_matriarchal } }
 			holder_scope = { NOT = { has_religion_feature = religion_patriarchal } }
 			OR = {

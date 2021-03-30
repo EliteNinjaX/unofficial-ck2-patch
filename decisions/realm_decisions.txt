@@ -386,6 +386,8 @@ decisions = {
 		ai_check_interval = 24
 		
 		potential = {
+			NOT = {
+				religion = orthodox
 			has_dlc = "Legacy of Rome"
 			is_playable = yes
 			is_adult = yes

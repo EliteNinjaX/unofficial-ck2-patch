@@ -1,0 +1,264 @@
+namespace = soc
+
+character_event = {
+	id = soc.0
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = unpledge_crusade_participation_flag
+		set_character_flag = unpledge_crusade_participation_flag
+	}
+}
+
+long_character_event = {
+	id = soc.1
+	desc = SOC1DESC
+	picture = GFX_evt_monk
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = {
+			which = "global_soc_orthodox_catholic_population_difference"
+			value = 0
+		}
+		any_province = {
+			limit = {
+				religion = orthodox
+			}
+			change_variable = {
+				which = "global_soc_orthodox_catholic_population_difference"
+				value = 1
+			}
+		}
+		any_province = {
+			limit = {
+				religion = catholic
+			}
+			change_variable = {
+				which = "global_soc_orthodox_catholic_population_difference"
+				value = -1
+			}
+		}
+	}
+	
+	option = {
+		name = SOC1OPTA
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = "global_soc_orthodox_catholic_population_difference"
+					value = 1
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SOC1OPTB
+		trigger = {
+			check_variable = {
+				which = "global_soc_orthodox_catholic_population_difference"
+				value = 1
+			}
+		}
+	}
+	
+	option = {
+		name = SOC1OPTC
+		trigger = {
+			check_variable = {
+				which = "global_soc_orthodox_catholic_population_difference"
+				value = 1
+			}
+		}
+		set_parent_religion = {
+			religion = catholic
+			parent = orthodox
+		}
+		set_parent_religion = {
+			religion = cathar
+			parent = orthodox
+		}
+		set_parent_religion = {
+			religion = fraticelli
+			parent = orthodox
+		}
+		set_parent_religion = {
+			religion = waldensian
+			parent = orthodox
+		}
+		set_parent_religion = {
+			religion = lollard
+			parent = orthodox
+		}
+		set_global_flag = catholics_declared_heretics_flag
+		piety = -1000
+	}
+}
+
+character_event = {
+	id = soc.2
+	desc = SOC2DESC
+	picture = GFX_evt_monk
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = {
+			which = "global_soc_orthodox_miaphysite_population_difference"
+			value = 0
+		}
+		any_province = {
+			limit = {
+				religion = orthodox
+			}
+			change_variable = {
+				which = "global_soc_orthodox_miaphysite_population_difference"
+				value = 1
+			}
+		}
+		any_province = {
+			limit = {
+				religion = miaphysite
+			}
+			change_variable = {
+				which = "global_soc_orthodox_miaphysite_population_difference"
+				value = -1
+			}
+		}
+	}
+	
+	option = {
+		name = SOC2OPTA
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = "global_soc_orthodox_miaphysite_population_difference"
+					value = 1
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SOC2OPTB
+		trigger = {
+			check_variable = {
+				which = "global_soc_orthodox_miaphysite_population_difference"
+				value = 1
+			}
+		}
+	}
+	
+	option = {
+		name = SOC2OPTC
+		trigger = {
+			check_variable = {
+				which = "global_soc_orthodox_miaphysite_population_difference"
+				value = 1
+			}
+		}
+		set_parent_religion = {
+			religion = miaphysite
+			parent = orthodox
+		}
+		set_parent_religion = {
+			religion = monophysite
+			parent = orthodox
+		}
+		set_global_flag = miaphysites_declared_heretics_flag
+		piety = -1000
+	}
+}
+
+character_event = {
+	id = soc.3
+	desc = SOC3DESC
+	picture = GFX_evt_monk
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = {
+			which = "global_soc_orthodox_nestorian_population_difference"
+			value = 0
+		}
+		any_province = {
+			limit = {
+				religion = orthodox
+			}
+			change_variable = {
+				which = "global_soc_orthodox_nestorian_population_difference"
+				value = 1
+			}
+		}
+		any_province = {
+			limit = {
+				religion = nestorian
+			}
+			change_variable = {
+				which = "global_soc_orthodox_nestorian_population_difference"
+				value = -1
+			}
+		}
+	}
+	
+	option = {
+		name = SOC3OPTA
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = "global_soc_orthodox_nestorian_population_difference"
+					value = 1
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SOC3OPTB
+		trigger = {
+			check_variable = {
+				which = "global_soc_orthodox_nestorian_population_difference"
+				value = 1
+			}
+		}
+	}
+	
+	option = {
+		name = SOC3OPTC
+		trigger = {
+			check_variable = {
+				which = "global_soc_orthodox_nestorian_population_difference"
+				value = 1
+			}
+		}
+		set_parent_religion = {
+			religion = nestorian
+			parent = orthodox
+		}
+		set_parent_religion = {
+			religion = messalian
+			parent = orthodox
+		}
+		set_global_flag = nestorians_declared_heretics_flag
+		piety = -1000
+	}
+}
+
+character_event = {
+	id = soc.4
+	desc = SOC4DESC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = SOC4OPTA
+	}
+}
