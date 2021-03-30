@@ -1,0 +1,111 @@
+decisions = {
+    create_ruman_sultanate_decision = {
+		only_independent = yes
+		ai_check_interval = 1
+		is_high_prio = yes
+		potential = {
+			k_rum = {
+				has_holder = no
+				}
+			religion_group = muslim
+			NOT = {
+				tier = emperor
+				}
+			#calc_true_if = {
+			#	amount = 1
+			#	completely_controls = d_armenia
+			#	completely_controls = d_coloneia
+			#	completely_controls = d_edessa
+			#	completely_controls = d_mesopotamia
+			#	completely_controls = d_paphlagonia
+			#	completely_controls = d_trebizond
+			#	completely_controls = d_armeniacon
+ 			#	completely_controls = d_anatolia
+ 			#	completely_controls = d_bucellarian
+			#	completely_controls = d_charsianon
+			#	completely_controls = d_cibyrrhaeot
+			#	completely_controls = d_armenia_minor
+ 			#	completely_controls = d_samos
+			#	completely_controls = d_thracesia
+			#	completely_controls = d_thrace
+			#	completely_controls = d_adrianopolis
+			#	completely_controls = d_nikaea
+ 			#	completely_controls = d_cyprus 
+			#	completely_controls = d_dyrrachion
+			#	completely_controls = d_optimatoi
+			#	completely_controls = d_abydos
+			#	completely_controls = d_cappadocia
+			#	}
+				
+		}
+		allow = {
+			religion_group = muslim
+			NOT = {
+				tier = emperor
+				}
+			independent = yes
+			is_adult = yes
+			prisoner = no
+			NOT = {	trait = incapable }
+			war = no
+			custom_tooltip = {
+				text = HOLDS_TEN_ANATOLIAN_DUCHIES
+
+					calc_true_if = {
+							amount = 10
+							completely_controls = d_armenia
+							completely_controls = d_coloneia
+							completely_controls = d_edessa
+							completely_controls = d_mesopotamia
+							completely_controls = d_paphlagonia
+							completely_controls = d_trebizond
+							completely_controls = d_armeniacon
+ 							completely_controls = d_anatolia
+ 							completely_controls = d_bucellarian
+							completely_controls = d_charsianon
+							completely_controls = d_cibyrrhaeot
+							completely_controls = d_armenia_minor
+ 							completely_controls = d_samos
+							completely_controls = d_thracesia
+							completely_controls = d_thrace
+							completely_controls = d_adrianopolis
+							completely_controls = d_nikaea
+ 							completely_controls = d_cyprus 
+							completely_controls = d_dyrrachion
+							completely_controls = d_optimatoi
+							completely_controls = d_abydos
+							completely_controls = d_cappadocia
+							}
+					}
+		}
+		effect = {
+			custom_tooltip = {
+				text = IS_GRANTED_RUM
+					activate_title = { title = k_rum status = yes }
+					ROOT = {
+						k_rum = {
+							grant_title = ROOT
+							copy_title_laws = PREV
+							}
+						}
+					}
+			any_demesne_title = {
+					limit = {
+						tier = KING
+						NOT = { title = k_rum }
+						}
+					destroy_landed_title = THIS
+					}
+			ROOT = {
+				narrative_event = { id = LOREXP.0001 }
+			}
+			any_playable_ruler = {
+				narrative_event = { id = LOREXP.0001 }
+			}
+			chronicle = {
+				entry = CHRONICLE_CREATED_RUM
+				picture = GFX_evt_throne_room
+			}
+			prestige = 1000
+		}
+}

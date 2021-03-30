@@ -1,0 +1,5 @@
+spriteTypes = {
+  spriteType = {
+    name = "GFX_form_the_hre_early_unoriginalstart"
+    texturefile = "gfx\\interface\\decision_icon_form_the_hre.dds"
+  }

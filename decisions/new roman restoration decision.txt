@@ -1,0 +1,50 @@
+decisions = {
+    restore_roman_empire_HRE = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 24
+		
+		potential = {
+			is_playable = yes
+			has_dlc = "Legacy of Rome"
+			has_landed_title = e_hre
+			OR = {
+				religion_group = christian 
+				religion = hellenic_pagan 
+				religion = hellenic_pagan_reformed
+				}
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = rome_restored }
+			NOR = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+		}
+		allow = {							
+			primary_title = { title = e_hre }
+			prestige = 3000
+			completely_controls = d_latium
+			completely_controls = d_venice
+			completely_controls = d_ferrara
+			completely_controls = d_sicily
+			completely_controls = d_genoa
+			completely_controls = d_capua
+			completely_controls = d_apulia
+			completely_controls = d_thrace
+			completely_controls = d_antioch
+			completely_controls = d_jerusalem
+			completely_controls = d_alexandria
+			completely_controls = d_athens
+			completely_controls = d_tunis
+			completely_controls = d_croatia
+		}
+		effect = {
+			set_global_flag = rome_restored
+			narrative_event = { id = LOREXP.0003 tooltip = EVTTOOLTIPLoR.20 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

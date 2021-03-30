@@ -1,0 +1,384 @@
+decisions = {
+	form_the_hre_early_unoriginalstart = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 1
+		
+		potential = {
+			is_playable = yes
+			NOT = {
+				limit = { AI = no }
+				start_date == 769.1.1
+				}
+			NOT = {
+				limit = { AI = no }
+				culture = german
+				culture = dutch
+			}
+			start_date <= 936.8.6
+			conditional_tooltip = {
+				trigger = {
+					is_alternate_start = no
+				}
+			}
+			NOT = { has_global_flag = rome_restored }
+			independent = yes
+			OR = {
+				religion = catholic
+				religion = fraticelli
+			}
+			NOT = { has_landed_title = e_byzantium }
+			NOT = { has_landed_title = e_rum }
+			NOT = { has_landed_title = k_rum }
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			e_hre = {
+				has_holder = no
+			}
+		}
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			prestige = 1000
+			custom_tooltip = {
+				text = HREREALMSIZETWOTWENTY
+					OR = {
+						realm_size = 220
+						AND = {
+							ai = yes
+							realm_size = 150
+							}
+						}
+					}
+			conditional_tooltip = {
+				trigger = {
+					is_alternate_start = no
+				}
+				custom_tooltip = {
+					text = form_the_hre_early_tooltip_1
+					hidden_tooltip = {
+						OR = {
+							has_landed_title = k_italy
+							has_landed_title = e_italy
+						}
+					}
+				}
+				custom_tooltip = {
+					text = form_the_hre_early_tooltip_2
+					hidden_tooltip = {
+						any_demesne_title = {
+							OR = {
+								title = e_france
+								title = e_germany
+								title = e_britannia
+								title = e_spain
+								AND = {
+									tier = KING
+									NOT = {	title = k_italy	}
+									OR = {
+										empire = { title = e_france }
+										empire = { title = e_germany }
+										empire = { title = e_britannia }
+										empire = { title = e_spain }
+									}
+								}
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = form_the_hre_early_tooltip_3
+					hidden_tooltip = {
+						OR = {
+							has_landed_title = e_italy
+							e_italy = {	has_holder = no	}
+							e_italy = { holder_scope = { NOT = { religion_group = christian } } }
+						}
+						OR = {
+							has_landed_title = e_germany
+							e_germany = {	has_holder = no	}
+							e_germany = { holder_scope = { NOT = { religion_group = christian } } }
+						}
+						OR = {
+							has_landed_title = e_france
+							e_france = { has_holder = no	}
+							e_france = { holder_scope = { NOT = { religion_group = christian } } }
+						}
+						OR = {
+							has_landed_title = e_spain
+							e_spain = {	has_holder = no	}
+							e_spain = { holder_scope = { NOT = { religion_group = christian } } }
+						}
+						OR = {
+							has_landed_title = e_britannia
+							e_britannia = {	has_holder = no	}
+							e_britannia = { holder_scope = { NOT = { religion_group = christian } } }
+						} 
+					}
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					ai = no
+				}
+				AND = {
+					religion_head = {
+						opinion = { who = ROOT value = 25 }
+					}
+					scaled_wealth = 2
+				}
+			}
+		}
+		effect = {
+			set_global_flag = charlemagne_hre
+			activate_title = { title = e_hre status = yes }
+			if = {
+				limit = {
+					ai = no
+				}
+				scaled_wealth = -2
+			}
+			if = {
+				limit = { has_nickname = no }
+				give_nickname = nick_the_great
+			}
+			#Create Electors, depending on capital location:
+			princely_elective_apply_elector_setup_effect = yes
+			primary_title = {
+				show_scope_change = no
+				e_hre = {
+					show_scope_change = no
+					grant_title = ROOT
+					copy_title_laws = PREV
+					##set_coa = PREV
+					add_law = succ_hre_elective
+				}
+			}
+			any_demesne_title = {
+				limit = { tier = KING }
+				de_jure_liege = e_hre
+			}
+			hidden_tooltip = {
+				any_demesne_title = {
+					if = {
+						limit = { tier = EMPEROR }
+						any_direct_de_jure_vassal_title = {
+							de_jure_liege = e_hre
+						}
+					}
+				}
+			}
+			any_demesne_title = {
+				limit = {
+					tier = EMPEROR
+					NOT = { title = e_hre }
+				}
+				destroy_landed_title = THIS
+				hidden_tooltip = { activate_title = { title = THIS status = no } }
+			}
+			any_demesne_title = {
+				limit = { tier = KING }
+				destroy_landed_title = THIS
+			}
+			# Give lands to the Pope
+			if = {
+				limit = {
+					any_realm_title = {
+						title = c_roma
+						holder_scope = {
+							OR = {
+								ai = yes
+								any_demesne_title = {
+									tier = COUNT
+									NOT = { title = c_roma }
+								}
+							}
+						}
+					}
+				}
+				c_roma = {
+					ROOT = {
+						religion_head = {
+							grant_title = PREVPREV
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_realm_title = {
+						title = c_ravenna
+						holder_scope = {
+							OR = {
+								ai = yes
+								any_demesne_title = {
+									tier = COUNT
+									NOT = { title = c_ravenna }
+								}
+							}
+						}
+					}
+				}
+				c_ravenna = {
+					ROOT = {
+						religion_head = {
+							grant_title = PREVPREV
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_realm_title = {
+						title = c_ferrara
+						holder_scope = {
+							OR = {
+								ai = yes
+								any_demesne_title = {
+									tier = COUNT
+									NOT = { title = c_ferrara }
+								}
+							}
+						}
+					}
+				}
+				c_ferrara = {
+					ROOT = {
+						religion_head = {
+							grant_title = PREVPREV
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_realm_title = {
+						title = c_urbino
+						holder_scope = {
+							OR = {
+								ai = yes
+								any_demesne_title = {
+									tier = COUNT
+									NOT = { title = c_urbino }
+								}
+							}
+						}
+					}
+				}
+				c_urbino = {
+					ROOT = {
+						religion_head = {
+							grant_title = PREVPREV
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_realm_title = {
+						title = c_spoleto
+						holder_scope = {
+							OR = {
+								ai = yes
+								any_demesne_title = {
+									tier = COUNT
+									NOT = { title = c_spoleto }
+								}
+							}
+						}
+					}
+				}
+				c_spoleto = {
+					ROOT = {
+						religion_head = {
+							grant_title = PREVPREV
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_realm_title = {
+						title = c_perugia
+						holder_scope = {
+							OR = {
+								ai = yes
+								any_demesne_title = {
+									tier = COUNT
+									NOT = { title = c_perugia }
+								}
+							}
+						}
+					}
+				}
+				c_perugia = {
+					ROOT = {
+						religion_head = {
+							grant_title = PREVPREV
+						}
+					}
+				}
+			}
+			e_byzantium = {
+				show_scope_change = no
+				holder_scope = {
+					show_scope_change = no
+					opinion = {
+						who = ROOT
+						modifier = opinion_unhappy
+						months = 1200
+					}
+					hidden_tooltip = {
+						k_papal_state = {
+							holder_scope = {
+								reverse_opinion = {
+									who = PREVPREV
+									modifier = opinion_unhappy
+									months = 1200
+								}
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						NOT = {	has_character_flag = is_charlemagne }
+						has_character_flag = charlemagne_coronation
+					}
+				}
+				add_artifact = crown_hre
+			}
+			if = {
+				limit = {
+					has_character_flag = is_charlemagne
+					NOT = { has_character_flag = charlemagne_coronation }
+				}
+				hidden_tooltip = { narrative_event = { id = CM.1500 } }        # Charlemagne coronation
+			}
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_holy_and_roman
+			}
+			ROOT = {
+				narrative_event = { id = LOREXP.0002 }
+			}
+			any_playable_ruler = {
+				narrative_event = { id = LOREXP.0002 }
+			}
+			chronicle = {
+				entry = CHRONICLE_RESTORED_HRE
+				picture = GFX_evt_coronation
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
