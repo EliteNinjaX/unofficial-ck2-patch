@@ -198,17 +198,17 @@ succession_laws = {
 	}
 	
 	succ_elective_gavelkind = {
-		NAND = { 
+		child_opinion = 15
+		dynasty_opinion = 5
+	
+		potential = {
+			NAND = { 
 				has_law = succ_byzantine_elective 
 				OR = { 
 					title = e_byzantium
 					title = e_roman_empire
 				}
 			}
-		child_opinion = 15
-		dynasty_opinion = 5
-	
-		potential = {
 			holder_scope = {
 				is_nomadic = no
 				OR = {
@@ -304,6 +304,13 @@ succession_laws = {
 		dynasty_opinion = 5
 	
 		potential = {
+			NAND = { 
+				has_law = succ_byzantine_elective 
+				OR = { 
+					title = e_byzantium
+					title = e_roman_empire
+				}
+			}
 			holder_scope = {
 				OR = {
 					AND = {
@@ -737,6 +744,13 @@ succession_laws = {
 		dynasty_opinion = -5
 		vassal_opinion = 10
 		potential = {
+			NAND = { 
+				has_law = succ_byzantine_elective 
+				OR = { 
+					title = e_byzantium
+					title = e_roman_empire
+				}
+			}
 			holder_scope = {
 				OR = {
 					independent = yes
@@ -993,13 +1007,6 @@ succession_laws = {
 		dynasty_opinion = 5
 		vassal_opinion = 5
 		potential = {
-			NAND = { 
-				has_law = succ_byzantine_elective 
-				OR = { 
-					title = e_byzantium
-					title = e_roman_empire
-				}
-			}
 			holder_scope = {
 				OR = {
 					independent = yes
@@ -1119,13 +1126,6 @@ succession_laws = {
 		child_opinion = -10
 		dynasty_opinion = -5
 		potential = {
-			NAND = { 
-				has_law = succ_byzantine_elective 
-				OR = { 
-					title = e_byzantium
-					title = e_roman_empire
-				}
-			}
 			holder_scope = {
 				OR = {
 					independent = yes
@@ -1287,13 +1287,6 @@ succession_laws = {
 		#child_opinion = 30
 		#dynasty_opinion = 10
 		potential = {
-			NAND = { 
-				has_law = succ_byzantine_elective 
-				OR = { 
-					title = e_byzantium
-					title = e_roman_empire
-				}
-			}
 			holder_scope = {
 				OR = {
 					religion_group = muslim
