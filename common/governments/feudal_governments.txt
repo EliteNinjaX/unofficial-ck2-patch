@@ -437,7 +437,7 @@ feudal_governments = {
 			castle_vassal_tax_modifier = 0.15
 			land_morale = 0.1
 			land_organisation = 0.1
-			#demesne_size = 3 # 5 Might be too OP
+			demesne_size = 5 # 5 Might be too OP
 			retinuesize_perc = 2
 		}
 		unit_modifier = {
