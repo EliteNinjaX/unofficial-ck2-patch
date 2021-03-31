@@ -1,0 +1,5 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+###### Overridden vanilla keys need to be loaded last to be taken into account;;;;;;;;;;;;;x
+###### Renamed titles;;;;;;;;;;;;;x
+e_byzantium;Eastern Roman Empire;Empire Romain d'Orient;Byzantinisches Kaiserreich;;Imperio Bizantino;;;;;;;x
+e_byzantium_adj;Roman;Romain;Byzantinischer;;Bizantina;;;;;;;x
