@@ -422,7 +422,7 @@ feudal_governments = {
 		can_grant_kingdoms_and_empires_to_other_government_group = yes
 		free_retract_vassalage = yes
 		allow_title_revokation = yes
-		
+		vassal_limit = 10
 		character_modifier = {
 			levy_size = -0.25
 			city_vassal_min_levy = -0.1
@@ -437,8 +437,8 @@ feudal_governments = {
 			castle_vassal_tax_modifier = 0.15
 			land_morale = 0.1
 			land_organisation = 0.1
-			demesne_size = 5
-			#retinuesize_perc = 2
+			#demesne_size = 3 # 5 Might be too OP
+			retinuesize_perc = 2
 		}
 		unit_modifier = {
 			retinuesize_perc = 2
