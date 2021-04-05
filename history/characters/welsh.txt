@@ -5187,26 +5187,6 @@
 		death="1130.1.1"
 	}
 }
-
-163104 = {
-	name="Artgal" 
-	dynasty=816 
-	martial=6
-	diplomacy=3
-	intrigue=6
-	stewardship=4
-	religion="catholic"
-	culture="welsh"
-	trait="tough_soldier"
-	father=166444
-	804.1.1={
-		birth="804.1.1"
-	}
-	872.1.1={
-		death="872.1.1"
-	}
-}
-
 159323 = {
 	name="Brychan"
 	dynasty=1029032 #1st Brycheiniog
@@ -7563,44 +7543,6 @@
 	}
 }
 
-166437 = {  	
-	name="Dyfnwal"
-	# AKA: Dyfnwal map Ywain
-	dynasty=100047
-	martial=7
-	diplomacy=2
-	intrigue=8
-	stewardship=2
-	religion="catholic"
-	culture="welsh"
-	father=166438
-	919.1.1={
-		birth="919.1.1"
-	}
-	975.1.1={
-		death="975.1.1"
-	}
-}
-
-166438 = {  	
-	name="Owain"
-	# AKA: Ywain map Dyfnwal
-	dynasty=100047
-	martial=7
-	diplomacy=6
-	intrigue=4
-	stewardship=4
-	religion="catholic"
-	culture="welsh"
-	father=166439
-	895.1.1={
-		birth="895.1.1"
-	}
-	937.1.1={
-		death="937.1.1"
-	}
-}
-
 166439 = {  	
 	name="Dyfnwal"
 	# AKA: Dyfnwal map Dyfnwal
@@ -9018,34 +8960,6 @@
 		birth=yes
 	}
 	495.1.1={
-		death=yes
-	}
-}
-252161 = {  	
-	name="Dingat" #same as 159935, but has conflicting father and dates
-	# AKA: Dingat ap Tutgwal Theodovellaunus
-	dynasty=816
-	religion="catholic"
-	culture="welsh"
-	father=252160
-	469.1.1={
-		birth=yes
-	}
-	538.1.1={
-		death=yes
-	}
-}
-252162 = {  	
-	name="Sennylt" #same as 159936, but has conflicting dates
-	# AKA: Sennylt ap Dingat
-	dynasty=816
-	religion="catholic"
-	culture="welsh"
-	father=252161
-	498.1.1={
-		birth=yes
-	}
-	575.1.1={
 		death=yes
 	}
 }

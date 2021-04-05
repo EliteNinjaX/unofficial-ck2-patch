@@ -18,6 +18,9 @@ feudal_governments = {
 		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
 			tribal_government
 		}
+		free_revoke_on_tiers = {
+			baron
+		}
 		potential = {
 			OR = {
 				controls_religion = no
@@ -87,6 +90,7 @@ feudal_governments = {
 			chinese_imperial_government
 		}
 		free_revoke_on_tiers = {
+			baron
 			duke
 		}
 		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
@@ -164,6 +168,9 @@ feudal_governments = {
 		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
 			tribal_government
 		}
+		free_revoke_on_tiers = {
+			baron
+		}
 		frame_suffix = "_theocraticfeudal"
 		potential = {
 			OR = {
@@ -234,6 +241,7 @@ feudal_governments = {
 			theocratic_feudal_government
 		}
 		free_revoke_on_tiers = {
+			baron
 			duke
 		}
 		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
@@ -381,7 +389,10 @@ feudal_governments = {
 			merchant_republic_government
 		}
 		free_revoke_on_tiers = {
+			baron
+			count
 			duke
+		#	king
 		}
 		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
 			tribal_government
