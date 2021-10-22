@@ -42,6 +42,22 @@ decisions = {
 		effect = {
 			set_global_flag = rome_restored
 			narrative_event = { id = LOREXP.0003 tooltip = EVTTOOLTIPLoR.20 }
+			effect = {
+			set_global_flag = rome_restored
+			narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
+				any_demesne_title = {
+				limit = {
+					tier = EMPEROR
+					NOT = { title = e_hre }
+				}
+				destroy_landed_title = THIS
+				hidden_tooltip = { activate_title = { title = THIS status = no } }
+			}
+			any_demesne_title = {
+				limit = { tier = KING }
+				destroy_landed_title = THIS
+			}
+		}
 		}
 		ai_will_do = {
 			factor = 1
@@ -90,6 +106,22 @@ decisions = {
 		effect = {
 			set_global_flag = rome_restored
 			narrative_event = { id = LOREXP.0003 tooltip = EVTTOOLTIPLoR.20 }
+			effect = {
+			set_global_flag = rome_restored
+			narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
+				any_demesne_title = {
+				limit = {
+					tier = EMPEROR
+					NOT = { title = e_hre }
+				}
+				destroy_landed_title = THIS
+				hidden_tooltip = { activate_title = { title = THIS status = no } }
+			}
+			any_demesne_title = {
+				limit = { tier = KING }
+				destroy_landed_title = THIS
+			}
+		}
 		}
 		ai_will_do = {
 			factor = 1
@@ -138,6 +170,22 @@ decisions = {
 		effect = {
 			set_global_flag = rome_restored
 			narrative_event = { id = LOREXP.0003 tooltip = EVTTOOLTIPLoR.20 }
+			effect = {
+			set_global_flag = rome_restored
+			narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
+				any_demesne_title = {
+				limit = {
+					tier = EMPEROR
+					NOT = { title = e_hre }
+				}
+				destroy_landed_title = THIS
+				hidden_tooltip = { activate_title = { title = THIS status = no } }
+			}
+			any_demesne_title = {
+				limit = { tier = KING }
+				destroy_landed_title = THIS
+			}
+		}
 		}
 		ai_will_do = {
 			factor = 1

@@ -109,3 +109,4 @@ decisions = {
 			prestige = 1000
 		}
 }
+}
