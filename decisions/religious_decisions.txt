@@ -148,6 +148,7 @@ decisions = {
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 				has_landed_title = e_roman_empire
+				has_landed_title = e_byzantium
 			}
 			OR = {
 				religion = catholic

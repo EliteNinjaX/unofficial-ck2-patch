@@ -12,7 +12,7 @@ decisions = {
 				religion_group = christian 
 				religion = hellenic_pagan 
 				religion = hellenic_pagan_reformed
-				}
+			}
 			is_adult = yes
 			prisoner = no
 			NOT = { trait = incapable }
@@ -76,7 +76,7 @@ decisions = {
 				religion_group = christian 
 				religion = hellenic_pagan 
 				religion = hellenic_pagan_reformed
-				}
+			}
 			is_adult = yes
 			prisoner = no
 			NOT = { trait = incapable }
@@ -140,7 +140,7 @@ decisions = {
 				religion_group = christian 
 				religion = hellenic_pagan 
 				religion = hellenic_pagan_reformed
-				}
+			}
 			is_adult = yes
 			prisoner = no
 			NOT = { trait = incapable }

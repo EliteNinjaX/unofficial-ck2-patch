@@ -1,5 +1,0 @@
-spriteTypes = {
-  spriteType = {
-    name = "GFX_restore_roman_empire_rum"
-    texturefile = "gfx\\interface\\decision_icon_restore_roman_empire.dds"
-  }
