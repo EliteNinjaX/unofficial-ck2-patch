@@ -6,3 +6,5 @@ V0.1 AKA Roman update
     The reason for this is if you wish to play as Rome and want your capital to not be catholic 
  -can no longer give the pope Rome if you are Roman or the Byzantine Empires
  -HRE, Italia and the Latin Empire can now restore Rome as well.
+ -The Roman Empire, Latin Empire and the Italian Empire can all use the Imperial Diadem
+ -Any christian can use the Reichskrone.
