@@ -1,5 +1,5 @@
 Unofficial-ck2-patch:
-A mod that aims to inprove ck2 while being as close to the base game as possible.
+A mod that aims to improve ck2 while being as close to the base game as possible.
 #Patch Notes
 V0.1 AKA Roman update
  -added Colosseum of Rome from wtwsms
