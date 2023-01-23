@@ -30,6 +30,8 @@ religion = catholic
 }
 
 # History
+476.9.4 = { set_wonder_damaged = yes }
+
 867.1.1 = { 
 	b_tusculum = ca_keep_1
 	b_tusculum = ca_stable_1

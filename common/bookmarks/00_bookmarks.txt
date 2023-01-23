@@ -584,14 +584,52 @@ bm_the_latin_empire = {
 	
 	era = yes		
 	picture = GFX_pick_era_image_4
-	selectable_character = {
-		id = 205523 # Baudouin I - Latin Empire
-	}
 
 	selectable_character = {
 		id = 215674 # Theodoros I - Byzantine Empire
+				name = BML_CHAR_NAME_215674
+		age = 32
+		title = e_nicaea
+		title_name = e_nicaea
+		coa_dynasty = no
+		character = {
+			dna = dycdfntnwwf
+			properties = ej0000000000000000
+			religion="orthodox"
+			culture="greek"
+			government = feudal_government
+			dynasty=724
+		}
 	}
-
+	selectable_character = {
+		id = 205523 # Baudouin I - Latin Empire
+		name = BML_CHAR_NAME_205523
+		age = 32
+		title = e_latin_empire
+		title_name = e_latin_empire
+		coa_dynasty = no
+		
+		character = {
+			dna = izdlkpmiyat
+			properties = ej0000000000000000
+			religion="catholic"
+			culture="dutch"
+			government = feudal_government
+			dynasty=724
+		}
+	}
+	selectable_character = {
+		id = 34187 # Kilij Arslan III of Rum
+		name = BML_CHAR_NAME_34187
+		age = 18
+		title = e_latin_empire
+		title_name = e_latin_empire
+		coa_dynasty = yes
+		character = {
+			religion="sunni"
+			culture="turkish"
+		}
+	}
 	selectable_character = {
 		id = 204514 # John I of England
 		name = BML_CHAR_NAME_204514
@@ -602,24 +640,20 @@ bm_the_latin_empire = {
 		
 		character = {
 			dna = kldxnqxzfjn
-			properties = k000cd000000
+			properties = 0g00l0
 			religion="catholic"
 			culture="english"
 			government = feudal_government
-			#dynasty=
+			dynasty=106
 		}
 	}
-
 	selectable_character = {
 		id = 205506 # Philippe II of France
-	}
-
-	selectable_character = {
-		id = 209500 # Sancho I of Portugal
-	}
-
-	selectable_character = {
-		id = 34187 # Kilij Arslan III of Rum
+				name = BML_CHAR_NAME_205506
+		age = 38
+		title = e_latin_empire
+		title_name = e_latin_empire
+		coa_dynasty = yes
 	}
 	selectable_character = {
 		id = 125501 # Genghis Khan
