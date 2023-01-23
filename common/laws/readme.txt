@@ -1,1 +1,0 @@
-# cognatic and true cognatic aren't potential if orthodox and the pass_agnatic_laws_flag is set

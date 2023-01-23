@@ -20,9 +20,13 @@ religion = catholic
 
 # History (Colosseum)
 72.1.1 = { 
+	build_wonder = wonder_colosseum
 }
-80.1.1 = {
-	set_wonder_stage = 4
+80.1.1 = { 
+	set_wonder_stage = 2
+}
+90.1.1 = { 
+	set_wonder_stage = 3
 }
 
 # History
